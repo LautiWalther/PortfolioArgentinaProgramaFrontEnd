@@ -1,11 +1,10 @@
 "use strict";
-class User {
-    constructor(name, lastname, dateofBirdth, languages, admin) {
+class Persona {
+    constructor(name, lastname, dateofBirdth, languages) {
         this.name = name;
         this.lastname = lastname;
         this.dateofBirdth = dateofBirdth;
         this.languages = languages;
-        this.admin = admin;
     }
     getName() {
         return this.name;
@@ -27,6 +26,12 @@ class User {
     }
     setLanguages(newLangs) {
         this.languages = newLangs;
+    }
+}
+class User extends Persona {
+    constructor(name, lastname, dateofBirdth, languages, admin) {
+        super(name, lastname, dateofBirdth, languages);
+        this.admin = admin;
     }
 }
 var user = new User('Lautaro', 'Walther', '25-02-2003', [

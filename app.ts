@@ -1,18 +1,15 @@
-class User {
+class Person {
     private name: string;
     private lastname: string;
     readonly dateofBirdth: string;
-    private languages: object[];
-    private admin: number;
-
-    constructor(name: string, lastname: string, dateofBirdth: string, languages: object[], admin: number) {
+    private languages: object[];    
+    
+    constructor(name: string, lastname: string, dateofBirdth: string, languages: object[]) {
         this.name = name;
         this.lastname = lastname;
         this.dateofBirdth = dateofBirdth;
         this.languages = languages;
-        this.admin = admin;
     }
-
     getName() {
         return this.name;
     }
@@ -37,6 +34,17 @@ class User {
     setLanguages(newLangs: object[]) {
         this.languages = newLangs;
     }
+}
+
+class User extends Person {
+
+    private admin: number;
+
+    constructor(name: string, lastname: string, dateofBirdth: string, languages: object[], admin: number) {
+        super(name, lastname, dateofBirdth, languages);
+        this.admin = admin;
+    }
+
 }
 
 var user = new User('Lautaro', 'Walther', '25-02-2003', [
